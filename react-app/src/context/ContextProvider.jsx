@@ -8,6 +8,7 @@ const ContextProvider = ({ children }) => {
     prevPrompt: [],
     isLoading: false,
   };
+
   const reducer = (state, action) => {
     switch (action.type) {
       case "setInput":
@@ -24,12 +25,13 @@ const ContextProvider = ({ children }) => {
   const [resultData, setResultData] = useState([]);
 
   useEffect(() => {
-  }, [resultData]);
+    console.log(state.isLoading);
+  }, [state.isLoading]);
 
   const onSent = async () => {
     dispatch({ type: "setIsLoading", payload: true });
-   
 
+    setResultData(""); // clearing prev data
     try {
       const response = await fetch("http://localhost:5000", {
         method: "POST",

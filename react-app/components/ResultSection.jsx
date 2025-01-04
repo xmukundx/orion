@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import Context from "../src/context/Context"
+import Context from "../src/context/Context";
 import MarkdownProcessor from "./MarkDown";
 
 const ResultSection = () => {
@@ -20,20 +20,22 @@ const ResultSection = () => {
   };
 
   return (
-    <section id="sec1" className="flex h-full flex-col w-full justify-around">
+    <section id="sec1" className="flex h-full w-full flex-col ">
       {state.showResult ? (
         <MarkdownProcessor />
       ) : (
-        <div className="mx-auto grid w-[80%] grid-cols-2 gap-4">
-          {Object.keys(obj).map((key) => (
-            <div
-              key={key}
-              className="cursor-pointer rounded-md bg-zinc-800 px-2 py-3 hover:bg-zinc-700"
-              onClick={() => handleKeyClick(key)}
-            >
-              {key}
-            </div>
-          ))}
+        <div id="suggestions" className="suggestions-container">
+          <div className="mx-auto grid grid-cols-2 place-items-end gap-4">
+            {Object.keys(obj).map((key) => (
+              <div
+                key={key}
+                className="h-fit cursor-pointer rounded-md bg-zinc-800 px-2 py-3 hover:bg-zinc-700"
+                onClick={() => handleKeyClick(key)}
+              >
+                {key}
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </section>

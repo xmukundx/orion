@@ -14,11 +14,17 @@ function App() {
 
   return (
     <>
-      <main className="m-0 flex h-screen bg-zinc-900 p-0 font-mono text-white">
+      <main className="m-0 flex h-screen bg-zinc-900 p- font-mono text-white">
         <Sidebar />
-        <div className="flex w-full flex-col justify-between bg-zinc-900">
-          <Header />
-          <ResultSection />
+        <div className="flex w-full flex-col justify-between">
+          <div className="flex flex-col">
+            <div className="h-[10rem]">
+              <Header />
+            </div>
+            <div className="h-[30rem]">
+              <ResultSection />
+            </div>
+          </div>
           <InputSection
             input={state.input}
             dispatch={dispatch}

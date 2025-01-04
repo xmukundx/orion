@@ -10,3 +10,9 @@
     margin: 0; 
 } */
 
+#result-container::-webkit-scrollbar{
+    display: none;
+    }
+.suggestions-container {
+    margin-top: auto;
+  }

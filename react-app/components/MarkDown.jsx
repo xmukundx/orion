@@ -7,8 +7,7 @@ import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import rehypePrettyCode from "rehype-pretty-code";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
-import Context  from "../src/context/Context";
-
+import Context from "../src/context/Context";
 
 //this component is being used by result.jsx
 const MarkdownProcessor = () => {
@@ -18,7 +17,7 @@ const MarkdownProcessor = () => {
     const processStream = async () => {
       if (!resultData || resultData.length === 0) return;
       console.log(typeof resultData);
-      
+
       try {
         const processor = unified()
           .use(remarkParse)
@@ -48,7 +47,8 @@ const MarkdownProcessor = () => {
 
   return (
     <div
-      className="prose dark:prose-invert mx-auto h-52 w-full overflow-y-auto bg-zinc-700 p-5"
+    id="result-container"
+      className="prose mx-auto h-full w-full flex-1 overflow-y-auto bg-zinc-700 p-5 dark:prose-invert"
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );
