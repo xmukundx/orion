@@ -22,7 +22,11 @@ const ResultSection = () => {
   return (
     <section id="sec1" className="flex h-full w-full flex-col ">
       {state.showResult ? (
-        <MarkdownProcessor />
+        <div className="overflow-y-auto mx-auto"
+        style={{width: "75%"}}>
+          <MarkdownProcessor />
+
+        </div>
       ) : (
         <div id="suggestions" className="suggestions-container">
           <div className="mx-auto grid grid-cols-2 place-items-end gap-4">
