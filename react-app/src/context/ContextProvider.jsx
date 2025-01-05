@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from "react";
+import { useReducer, useRef, useState } from "react";
 import Context from "./Context";
 const ContextProvider = ({ children }) => {
   const initialState = {
@@ -17,20 +17,27 @@ const ContextProvider = ({ children }) => {
         return { ...state, isLoading: action.payload };
       case "setShowResult":
         return { ...state, showResult: action.payload };
+      case "setPrevPrompt":
+        return {
+          ...state,
+          prevPrompt: [...state.prevPrompt, action.payload],
+        };
+      case "setRecentPrompt":
+        return { ...state, recentPrompt: state.input };
       default:
         return state;
     }
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   const [resultData, setResultData] = useState([]);
-
-  useEffect(() => {
-    console.log(state.isLoading);
-  }, [state.isLoading]);
+  const inputRef = useRef(null);
 
   const onSent = async () => {
+    if (state.input.length === 0) return alert('please wirte something');
+    
     dispatch({ type: "setIsLoading", payload: true });
-
+    dispatch({ type: "setPrevPrompt", payload: state.input });
+    dispatch({ type: "setRecentPrompt" });
     setResultData(""); // clearing prev data
     try {
       const response = await fetch("http://localhost:5000", {
@@ -70,7 +77,9 @@ const ContextProvider = ({ children }) => {
   };
 
   return (
-    <Context.Provider value={{ state, dispatch, onSent, resultData }}>
+    <Context.Provider
+      value={{ state, dispatch, onSent, resultData, setResultData, inputRef }}
+    >
       {children}
     </Context.Provider>
   );

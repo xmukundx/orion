@@ -16,8 +16,6 @@ const MarkdownProcessor = () => {
   useEffect(() => {
     const processStream = async () => {
       if (!resultData || resultData.length === 0) return;
-      console.log(typeof resultData);
-
       try {
         const processor = unified()
           .use(remarkParse)
@@ -48,7 +46,7 @@ const MarkdownProcessor = () => {
   return (
     <div
     id="result-container"
-      className="prose mx-auto h-full max-w-none rounded-lg flex-1 overflow-y-auto bg-zinc-700 p-5 dark:prose-invert"
+      className="prose mx-auto h-full max-w-none rounded-lg flex-1 overflow-y-auto  bg-zinc-800 p-5 dark:prose-invert"
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );
