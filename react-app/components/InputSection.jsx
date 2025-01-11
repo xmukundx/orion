@@ -12,7 +12,7 @@ const InputSection = () => {
   return (
     <section
       id="sec2"
-      className="item-center flex h-[15%] justify-center gap-4 pt-2"
+      className="item-center flex w-[90%] mx-auto justify-center gap-4 pt-2"
     >
       <input
         value={state.input}

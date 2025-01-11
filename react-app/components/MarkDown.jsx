@@ -46,7 +46,7 @@ const MarkdownProcessor = () => {
   return (
     <div
     id="result-container"
-      className="prose mx-auto h-full max-w-none rounded-lg flex-1 overflow-y-auto  bg-zinc-800 p-5 dark:prose-invert"
+      className="prose mx-auto w-[70%] h-full max-w-none overflow-y-auto rounded-lg flex-1 bg-zinc-800 p-5 dark:prose-invert"
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );

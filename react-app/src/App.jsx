@@ -3,27 +3,28 @@ import {
   // , useEffect, useState
 } from "react";
 import "./App.css";
+// import Test from "./Test";
 import Context from "./context/Context";
 import Sidebar from "../components/Sidebar";
-// import Header from "../components/Header";
 import MainSection from "../components/MainSection";
 import InputSection from "../components/InputSection";
-import MenuSection from "../components/MenuSection";
+// import MenuSection from "../components/MenuSection";
+// import LogoAnimation from "../components/LogoAnimation";
+
 
 function App() {
   const { state, dispatch, onSent } = useContext(Context);
 
   return (
     <>
-      <main className="m-0 flex h-screen bg-zinc-900 text-secondary ">
-        <MenuSection/>
+       <main className="m-0 flex h-screen relative bg-zinc-900 text-secondary ">
+       {/* <LogoAnimation/>  */}
+        {/* <MenuSection/> */}
         <Sidebar />
-        <div className="flex w-full flex-col justify-around">
+        <div className="flex w-full flex-col ">
           <div className="flex flex-col">
-            {/* <div className="h-fit ">
-              <Header />
-            </div> */}
-            <div className="h-[32rem]">
+            
+            <div className="">
               <MainSection />
             </div>
           </div>
@@ -34,7 +35,8 @@ function App() {
             isLoading={state.isLoading}
           />
         </div>
-      </main>
+      </main> 
+     
     </>
   );
 }
