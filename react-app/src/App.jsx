@@ -18,8 +18,7 @@ function App() {
   return (
     <>
        <main className="m-0 flex h-screen relative bg-zinc-900 text-secondary ">
-       {/* <LogoAnimation/>  */}
-        {/* <MenuSection/> */}
+       
         <Sidebar />
         <div className="flex w-full flex-col ">
           <div className="flex flex-col">

@@ -3,6 +3,7 @@ import Context from "./Context";
 const ContextProvider = ({ children }) => {
   const initialState = {
     input: "",
+    isOpen: "true",
     showResult: false,
     recentPrompt: "",
     prevPrompt: [],
@@ -13,6 +14,8 @@ const ContextProvider = ({ children }) => {
     switch (action.type) {
       case "setInput":
         return { ...state, input: action.payload };
+      case "setIsOpen":
+        return {...state, isOpen: action.payload};
       case "setIsLoading":
         return { ...state, isLoading: action.payload };
       case "setShowResult":
@@ -38,6 +41,7 @@ const ContextProvider = ({ children }) => {
     dispatch({ type: "setIsLoading", payload: true });
     dispatch({ type: "setPrevPrompt", payload: state.input });
     dispatch({ type: "setRecentPrompt" });
+    dispatch({ type: "setInput", payload: "" }); // clearing input
     setResultData(""); // clearing prev data
     try {
       const response = await fetch("http://localhost:5000", {
@@ -73,12 +77,20 @@ const ContextProvider = ({ children }) => {
       console.error("Fetch error:", error);
     } finally {
       dispatch({ type: "setIsLoading", payload: false });
+      
     }
   };
 
+  const clearData = () => {
+    dispatch({ type: "setShowResult", payload: false });
+    setResultData("");
+    inputRef.current.focus();
+  };
+
+
   return (
     <Context.Provider
-      value={{ state, dispatch, onSent, resultData, setResultData, inputRef }}
+      value={{ state, dispatch, onSent, resultData, setResultData, inputRef, clearData }}
     >
       {children}
     </Context.Provider>
