@@ -13,7 +13,7 @@ const InputSection = () => {
 
   return (
     <section id="sec2" className="mx-auto  flex h-full w-[90%] flex-col pt-2">
-      <div className=" h-full flex pb-16 items-end justify-center gap-4">
+      <div className=" h-full flex items-center justify-center gap-4">
         <input
           value={state.input}
           onChange={(e) =>
@@ -25,7 +25,7 @@ const InputSection = () => {
           type="text"
         />
         <button
-          className={`inline-flex h-12 w-12 items-center justify-center rounded-full ${
+          className={`h-12 w-12 grid  rounded-full ${
             state.isLoading
               ? "border-gray-300 bg-zinc-800 text-gray-100"
               : "bg-primary border-purple-500"
@@ -33,7 +33,7 @@ const InputSection = () => {
           onClick={onSent}
           disabled={state.isLoading}
         >
-          <IoMdSend />
+          <IoMdSend className="text-secondary w-7 h-7 place-self-center"/>
 
         </button>
       </div>

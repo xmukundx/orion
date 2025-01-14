@@ -11,6 +11,7 @@ export default {
         primary: "#ED6A59",
 
         secondary: "#D1D5DB",
+        
       },
       fontFamily: {
         sans: ["Outfit", " serif"],

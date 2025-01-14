@@ -3,7 +3,8 @@ import Context from "./Context";
 const ContextProvider = ({ children }) => {
   const initialState = {
     input: "",
-    isOpen: "true",
+    isAsideOpen: false,
+    isModalOpen: false,
     showResult: false,
     recentPrompt: "",
     prevPrompt: [],
@@ -14,8 +15,10 @@ const ContextProvider = ({ children }) => {
     switch (action.type) {
       case "setInput":
         return { ...state, input: action.payload };
-      case "setIsOpen":
-        return {...state, isOpen: action.payload};
+      case "setIsAsideOpen":
+        return { ...state, isAsideOpen: !state.isAsideOpen };
+      case "setIsModalOpen":
+        return {...state, isModalOpen: !state.isModalOpen};
       case "setIsLoading":
         return { ...state, isLoading: action.payload };
       case "setShowResult":
