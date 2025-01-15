@@ -1,5 +1,6 @@
 import { useReducer, useRef, useState } from "react";
 import Context from "./Context";
+
 const ContextProvider = ({ children }) => {
   const initialState = {
     input: "",
@@ -87,6 +88,7 @@ const ContextProvider = ({ children }) => {
   const clearData = () => {
     dispatch({ type: "setShowResult", payload: false });
     setResultData("");
+    dispatch({type: "setIsAsideOpen"})
     inputRef.current.focus();
   };
 

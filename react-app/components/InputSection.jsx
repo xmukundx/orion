@@ -12,7 +12,7 @@ const InputSection = () => {
   };
 
   return (
-    <section id="sec2" className="mx-auto  flex h-full w-[90%] flex-col pt-2">
+    <section id="sec2" className="mx-auto  flex pt-5 sm:pt-10 w-[90%] flex-col">
       <div className=" h-full flex items-center justify-center gap-4">
         <input
           value={state.input}

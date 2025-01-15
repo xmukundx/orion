@@ -13,7 +13,7 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div className="fixed lg:static">
+    <div className="fixed ">
       <aside
         className={`${!state.isAsideOpen && "translate-x-[-100vw]"} h-[97vh] w-[15rem] duration-300`}
       >

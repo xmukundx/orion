@@ -24,14 +24,14 @@ const Modal = ({ handleModal }) => {
       onClick={handleClickOutside}
       className={`fixed left-0 top-0 z-20 flex h-screen w-full items-center justify-center bg-gray-400 bg-opacity-0 bg-clip-padding backdrop-blur-md backdrop-filter transition-opacity duration-300 ${isClosing ? "opacity-0" : "opacity-100"}`}
     >
-      <p className="relative w-[50vw] text-justify text-base md:text-2xl font-bold text-gray-400">
+      <p className="relative w-[50vw] text-justify text-sm sm:text-2xl font-bold text-gray-400">
         <IoMdClose
           className="absolute md:-right-16 md:-top-16 -right-10 -top-10 m-5 rounded-md border border-primary hover:cursor-pointer hover:text-primary"
           onClick={handleClose} // Close modal on click
         />
-        <span className="text-primary">Orion</span>
+        <span className="text-primary ">Orion</span>
         {
-          "'s primarily focus on user privacy. Unlike many other search engines, We does not track users or collect personal information. Your personal data is nobody's business. We provide anonymous access to popular Google AI model Gemini AI"
+          "'s primarily focus on user privacy. Unlike many other search engines, We does not track users or collect personal information. Your personal data is nobody's business. We provide anonymous access to popular Google AI model Gemini AI."
         }
       </p>
     </div>
