@@ -6,38 +6,34 @@ import { FaInfo } from "react-icons/fa";
 import Modal from "./Modal";
 
 const Header = () => {
-  const { state, dispatch, inputRef } = useContext(Context);
+  const { state, dispatch, inputRef, clearData } = useContext(Context);
   const handleModal = () => {
     dispatch({ type: "setIsModalOpen" });
   };
 
   return (
     <header className="relative top-5 flex items-center gap-2 pl-5 text-2xl sm:fixed sm:left-8 sm:flex-col sm:pl-0">
-      <p className="hidden text-5xl font-bold text-primary sm:block">O</p>
-      <h1 className="hidden text-4xl font-bold">
-        <span className="text-primary">O</span>
-        <span className="">rion</span>
-      </h1>
+      <p className="hidden text-5xl font-bold text-primary sm:block hover:cursor-pointer" onClick={clearData}>O</p>
 
       <button
         onClick={() => dispatch({ type: "setIsAsideOpen" })}
         title="Open menu"
-        className={`w-fit cursor-pointer rounded-md border border-gray-800 text-secondary p-2`}
+        className={`cursor-pointer rounded-md border border-gray-800 p-2 hover:text-primary`}
       >
-        <IoMenu />
+        <IoMenu className="text-sm sm:text-lg" />
       </button>
       <button
         title="Start new chat"
         onClick={() => inputRef.current.focus()}
-        className={`w-fit hidden sm:block cursor-pointer rounded-md border border-gray-800 text-secondary p-2`}
+        className={`hidden cursor-pointer rounded-md border border-gray-800 p-2 hover:text-primary sm:block`}
       >
-        <AiFillEdit />
+        <AiFillEdit className="text-sm sm:text-lg" />
       </button>
       <button
-        className={`w-fit cursor-pointer rounded-md border border-gray-800 text-secondary p-2 absolute sm:static right-5`}
+        className={`absolute right-5 cursor-pointer rounded-md border border-gray-800 p-2 hover:text-primary sm:static`}
         onClick={handleModal}
       >
-        <FaInfo />
+        <FaInfo className="text-sm sm:text-lg" />
       </button>
       {state.isModalOpen && <Modal handleModal={handleModal} />}
     </header>

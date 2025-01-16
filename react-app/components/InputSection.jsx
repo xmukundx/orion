@@ -2,7 +2,6 @@ import { useContext } from "react";
 import Context from "../src/context/Context";
 import { IoMdSend } from "react-icons/io";
 
-
 const InputSection = () => {
   const { state, dispatch, onSent, inputRef } = useContext(Context);
   const handleKeyDown = (event) => {
@@ -12,8 +11,8 @@ const InputSection = () => {
   };
 
   return (
-    <section id="sec2" className="mx-auto  flex pt-5 sm:pt-10 w-[90%] flex-col">
-      <div className=" h-full flex items-center justify-center gap-4">
+    <section id="sec2" className="mx-auto flex w-[90%] flex-col pt-5 md:pt-10">
+      <div className="flex h-full items-center justify-center gap-4">
         <input
           value={state.input}
           onChange={(e) =>
@@ -21,20 +20,17 @@ const InputSection = () => {
           }
           onKeyDown={handleKeyDown}
           ref={inputRef}
-          className="h-11 w-[60%] rounded-lg border border-primary bg-zinc-800 px-2 py-1 focus:outline-none focus:ring-2 focus:ring-primary"
+          className={`h-11 w-[60%] rounded-lg border border-gray-800 bg-zinc-800 px-2 py-1 ring-gray-800 focus:outline-none focus:ring-2 focus:ring-primary`}
           type="text"
         />
         <button
-          className={`h-12 w-12 grid  rounded-full ${
-            state.isLoading
-              ? "border-gray-300 bg-zinc-800 text-gray-100"
-              : "bg-primary border-purple-500"
-          } duration-500 active:scale-[0.98]`}
+          className={`grid h-12 w-12 rounded-full ${
+            state.isLoading ? "animate-spin bg-zinc-800" : "bg-primary"
+          } duration-500 active:scale-[0.90]`}
           onClick={onSent}
           disabled={state.isLoading}
         >
-          <IoMdSend className="text-secondary w-7 h-7 place-self-center"/>
-
+          <IoMdSend className="h-7 w-7 place-self-center text-secondary" />
         </button>
       </div>
     </section>

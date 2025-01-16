@@ -3,14 +3,15 @@ import Context from "../src/context/Context";
 import MarkdownProcessor from "./MarkDown";
 import Header from "./Header";
 const MainSection = () => {
-  const { state, resultData } = useContext(Context);
+  const { state, dispatch, resultData } = useContext(Context);
 
   const obj = {
     "Fix grammar of a sentence":
       "Please check the grammar in this sentence: [Your_Sentence]",
     "Check spelling of any word ":
       "Please check the spelling in this word: [Your_Word]",
-    "What does a word mean?": "Define the word '[Word]'",
+    "Translate to any language":
+      "[Your word/sentence]. Translate this sentence or word to '[Language]'",
     "Write a email":
       "Draft an email to [Recipient Name] with the following information: [Bullet points or brief outline of the email content]",
   };
@@ -20,7 +21,7 @@ const MainSection = () => {
       {!state.isAsideOpen ? (
         <Header />
       ) : (
-        <div className="h-[41.6px] sm:hidden" /> // to manage the height to avoid alignment issues in mobile view
+        <div className="h-[31.6px] sm:hidden" /> // to manage the height to avoid alignment issues in mobile view
       )}
       {state.showResult ? (
         <div id="result-container" className="">
@@ -40,7 +41,7 @@ const MainSection = () => {
       ) : (
         <div className="h-[80vh]">
           <div className=" ">
-            <h1 className="orion-gradient flex h-56 items-end justify-center text-2xl sm:text-4xl md:text-7xl">
+            <h1 className="flex h-56 items-end justify-center text-2xl sm:text-4xl md:text-7xl">
               Ask&nbsp;<span className="text-primary">o</span>{" "}
               <span>rion anything</span>
             </h1>
@@ -51,7 +52,9 @@ const MainSection = () => {
                 <div
                   key={key}
                   className="mx-auto h-fit w-full cursor-pointer rounded-md bg-zinc-800 px-2 py-3 text-sm font-thin hover:bg-zinc-700 sm:min-w-56 sm:text-base"
-                  onClick={() => {}}
+                  onClick={() =>
+                    dispatch({ type: "setInput", payload: obj[key] })
+                  }
                 >
                   {key}
                 </div>
