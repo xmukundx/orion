@@ -17,7 +17,7 @@ const ContextProvider = ({ children }) => {
       case "setInput":
         return { ...state, input: action.payload };
       case "setIsAsideOpen":
-        return { ...state, isAsideOpen: !state.isAsideOpen };
+        return { ...state, isAsideOpen: action.payload };
       case "setIsModalOpen":
         return {...state, isModalOpen: !state.isModalOpen};
       case "setIsLoading":
@@ -49,6 +49,7 @@ const ContextProvider = ({ children }) => {
     setResultData(""); // clearing prev data
     try {
       const response = await fetch("https://orion-backend-pqzf.onrender.com/", {
+        // const response = await fetch("http://localhost:5000", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,8 +73,6 @@ const ContextProvider = ({ children }) => {
 
         if (value) {
           const chunk = decoder.decode(value, { stream: true });
-
-          dispatch({ type: "updateResultData", payload: chunk });
           setResultData((prevData) => prevData + chunk);
         }
       }

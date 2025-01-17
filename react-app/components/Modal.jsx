@@ -24,7 +24,7 @@ const Modal = ({ handleModal }) => {
       onClick={handleClickOutside}
       className={`fixed left-0 top-0 z-20 flex h-screen w-full items-center justify-center bg-gray-400 bg-opacity-0 bg-clip-padding backdrop-blur-md backdrop-filter transition-opacity duration-300 ${isClosing ? "opacity-0" : "opacity-100"}`}
     >
-      <p className="relative w-[50vw] text-justify text-sm sm:text-2xl font-bold text-gray-400">
+      <p className="relative w-[50vw] text-justify text-lg sm:text-2xl font-bold text-gray-400">
         <IoMdClose
           className="absolute md:-right-16 md:-top-16 -right-10 -top-10 m-5 rounded-md border border-primary hover:cursor-pointer hover:text-primary"
           onClick={handleClose} // Close modal on click

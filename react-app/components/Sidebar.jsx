@@ -8,23 +8,22 @@ const Sidebar = () => {
   const { state, dispatch, clearData } = useContext(Context);
 
   useEffect(() => {
-    if (window.innerWidth < 400) {
-      dispatch({ type: "setIsAsideOpen" }); // hides the aside on mobile devices by default
-    }
+    if (window.innerWidth > 1100) dispatch({ type: "setIsAsideOpen", payload: true }); // hides the aside on mobile devices by default
+    
   }, []);
 
   return (
-    <div className="fixed">
+    <div className={`${!state.isAsideOpen && "translate-x-[-100vw]" } fixed`}>
       <aside
-        className={`${!state.isAsideOpen && "translate-x-[-100vw]"} h-[97vh] w-[15rem] duration-300`}
+        className={`${!state.isAsideOpen && "translate-x-[-100vw] "} h-[97vh] w-[15rem] duration-300`}
       >
         <div className="mx-6 mt-5 flex h-[95vh] flex-col rounded-md border border-gray-800 bg-gray-400 bg-opacity-0 bg-clip-padding px-5 py-5 backdrop-blur-md backdrop-filter">
           <button
             className="ml-auto rounded-md border border-gray-800 p-1 hover:text-primary"
             title="Close"
-            onClick={() => dispatch({ type: "setIsAsideOpen" })}
+            onClick={() => dispatch({ type: "setIsAsideOpen", payload: false })}
           >
-            <IoMdClose />
+            <IoMdClose className="hover:text-primary"/>
           </button>
           <h1
             className="cursor-default text-6xl font-bold text-primary hover:cursor-pointer"
@@ -57,7 +56,7 @@ const Sidebar = () => {
                 </ol>
               ))
             ) : (
-              <p className="font-extralight">No recent chats</p>
+              <p className="font-extralight pl-2">No recent chats</p>
             )}
           </div>
           <p className="mt-auto text-justify text-xs">

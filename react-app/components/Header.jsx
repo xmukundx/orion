@@ -16,24 +16,24 @@ const Header = () => {
       <p className="hidden text-5xl font-bold text-primary sm:block hover:cursor-pointer" onClick={clearData}>O</p>
 
       <button
-        onClick={() => dispatch({ type: "setIsAsideOpen" })}
+        onClick={() => dispatch({ type: "setIsAsideOpen", payload: true })}
         title="Open menu"
         className={`cursor-pointer rounded-md border border-gray-800 p-2 hover:text-primary`}
       >
-        <IoMenu className="text-sm sm:text-lg" />
+        <IoMenu  />
       </button>
       <button
         title="Start new chat"
         onClick={() => inputRef.current.focus()}
         className={`hidden cursor-pointer rounded-md border border-gray-800 p-2 hover:text-primary sm:block`}
       >
-        <AiFillEdit className="text-sm sm:text-lg" />
+        <AiFillEdit  />
       </button>
       <button
         className={`absolute right-5 cursor-pointer rounded-md border border-gray-800 p-2 hover:text-primary sm:static`}
         onClick={handleModal}
       >
-        <FaInfo className="text-sm sm:text-lg" />
+        <FaInfo  />
       </button>
       {state.isModalOpen && <Modal handleModal={handleModal} />}
     </header>

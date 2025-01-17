@@ -24,6 +24,9 @@ const InputSection = () => {
           type="text"
         />
         <button
+          // className={`grid h-12 w-12 rounded-full ${
+          //   state.isLoading ? "animate-spin bg-zinc-800" : "bg-primary"
+          // } duration-500 active:scale-[0.90]`}
           className={`grid h-12 w-12 rounded-full ${
             state.isLoading ? "animate-spin bg-zinc-800" : "bg-primary"
           } duration-500 active:scale-[0.90]`}

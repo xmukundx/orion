@@ -21,7 +21,7 @@ const MainSection = () => {
       {!state.isAsideOpen ? (
         <Header />
       ) : (
-        <div className="h-[31.6px] sm:hidden" /> // to manage the height to avoid alignment issues in mobile view
+        <div className="h-[41.6px] sm:hidden" /> // to manage the height to avoid alignment issues in mobile view
       )}
       {state.showResult ? (
         <div id="result-container" className="">

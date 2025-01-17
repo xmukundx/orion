@@ -32,7 +32,6 @@ const MarkdownProcessor = () => {
             ],
           });
 
-        // const markdown = resultData.join("");
         const file = await processor.process(resultData);
         setHtmlContent(file.toString());
       } catch (error) {
@@ -46,7 +45,7 @@ const MarkdownProcessor = () => {
   return (
     <div
       id="result-container"
-      className="prose mx-auto text-xs sm:text-sm md:text-base h-full w-[80%] max-w-none flex-1 overflow-y-auto rounded-lg bg-zinc-800 p-2 dark:prose-invert  sm:w-[70%] md:p-5"
+      className="prose mx-auto text-xs sm:text-sm md:text-base h-full w-[80%] max-w-none flex-1 overflow-y-auto rounded-lg bg-zinc-800 p-2 dark:prose-invert  sm:w-[70%] md:p-5 "
       dangerouslySetInnerHTML={{ __html: htmlContent }}
     />
   );
