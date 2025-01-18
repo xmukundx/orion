@@ -12,6 +12,33 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
+//function keep website alive on render
+const url = `https://orion-backend-pqzf.onrender.com/`;
+const interval = 900000; // 15 minutes in milliseconds
+
+function operatingHours() { // only work between 8 AM and 11 PM
+  const now = new Date();
+  const hours = now.getHours();
+  return hours >= 8 && hours < 23;
+}
+
+function reloadWebsite() {
+  if (operatingHours()) {
+    fetch(url)
+      .then((response) => {
+        console.log("Website reloaded");
+      })
+      .catch((error) => {
+        console.error(`reloadWebsite Error: ${error.message}`);
+      });
+  }
+}
+
+// Set an interval to check every 30 seconds
+setInterval(reloadWebsite, interval);
+
+// function end
+
 const apiKey = process.env.API_KEY;
 
 const genAI = new GoogleGenerativeAI(apiKey);
