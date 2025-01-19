@@ -48,8 +48,8 @@ const ContextProvider = ({ children }) => {
     dispatch({ type: "setInput", payload: "" }); // clearing input
     setResultData(""); // clearing prev data
     try {
+      // const response = await fetch("http://localhost:5000", {
       const response = await fetch("https://orion-backend-pqzf.onrender.com/", {
-        // const response = await fetch("http://localhost:5000", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

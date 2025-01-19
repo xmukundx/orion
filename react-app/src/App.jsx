@@ -9,11 +9,7 @@ function App() {
       <main className="relative m-0 flex h-screen bg-zinc-900 text-secondary">
         <Sidebar />
         <div className="flex w-full flex-col">
-          <div className="flex flex-col">
-            <div className="">
-              <MainSection />
-            </div>
-          </div>
+          <MainSection />
           <InputSection />
         </div>
       </main>

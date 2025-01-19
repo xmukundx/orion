@@ -29,7 +29,8 @@ const MainSection = () => {
             <span className="text-2xl font-bold text-primary">O</span>{" "}
             {resultData.length > 10 && (
               <h1 className="font-semibold md:text-lg">
-                {state.recentPrompt[0].toUpperCase() +
+                {state.recentPrompt.length > 50 ? state.recentPrompt[0].toUpperCase() +
+                  state.recentPrompt.slice(1, 50) + "..." : state.recentPrompt[0].toUpperCase() +
                   state.recentPrompt.slice(1)}
               </h1>
             )}
