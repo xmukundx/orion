@@ -25,16 +25,20 @@ const MainSection = () => {
       )}
       {state.showResult ? (
         <div id="result-container" className="">
-          <div className="mx-auto flex h-[10vh] w-[80%] items-center gap-1 pt-5 sm:w-[70%]">
+          <div className="mx-auto flex h-[10vh] w-[80%]  items-center gap-1 pt-5 sm:w-[70%]">
             <span className="text-2xl font-bold text-primary">O</span>{" "}
             {resultData.length > 10 && (
-              <h1 className="font-semibold md:text-lg">
+              <h1 className="font-semibold md:text-lg text-primary p-2 rounded-md">
                 {state.recentPrompt.length > 50 ? state.recentPrompt[0].toUpperCase() +
                   state.recentPrompt.slice(1, 50) + "..." : state.recentPrompt[0].toUpperCase() +
                   state.recentPrompt.slice(1)}
+                  
               </h1>
+              
             )}
+            
           </div>
+          
           <div className="h-[70vh]">
             <MarkdownProcessor />
           </div>
