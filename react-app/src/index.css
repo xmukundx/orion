@@ -9,9 +9,16 @@ body {
   box-sizing: border-box;
 }
 
+#result-container{
+  @apply text-gray-200; /* Default text color */
+
+}
+#result-container strong {
+  @apply text-primary;
+}
+
 #result-container::-webkit-scrollbar {
   display: none;
-  
 }
 
 .main {
