@@ -86,6 +86,7 @@ const ContextProvider = ({ children }) => {
 
   const clearData = () => {
     dispatch({ type: "setShowResult", payload: false });
+    dispatch({type: "setInput", payload: ""})
     setResultData("");
     dispatch({type: "setIsAsideOpen"})
     inputRef.current.focus();
